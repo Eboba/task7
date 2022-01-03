@@ -25,6 +25,6 @@ func main() {
 		}
 
 		star += 2
-		fmt.Println("")
+		fmt.Println()
 	}
 }

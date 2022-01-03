@@ -17,29 +17,44 @@ func main() {
 	fmt.Scan(&height)
 
 	var (
-		aWidth  int
 		aHeight int
+		aWidth  int
 	)
 
 	for aHeight < height {
 
-		fmt.Print(" ")
-		aWidth++
+		for aWidth < width {
+			fmt.Print(" ")
+			aWidth++
 
-		if aWidth == width {
-			fmt.Println("")
-			aWidth = 0
-			aHeight++
+			if aWidth == width {
+				break
+			}
+
+			fmt.Print("*")
+			aWidth++
+
 		}
 
-		fmt.Print("*")
-		aWidth++
+		fmt.Println()
+		aHeight++
+		aWidth = 0
 
-		if aWidth == width {
-			fmt.Println("")
-			aWidth = 0
-			aHeight++
+		for aWidth < width {
+			fmt.Print("*")
+			aWidth++
+
+			if aWidth == width {
+				break
+			}
+
+			fmt.Print(" ")
+			aWidth++
+
 		}
 
+		fmt.Println()
+		aHeight++
+		aWidth = 0
 	}
 }
