@@ -21,38 +21,24 @@ func main() {
 		aWidth  int
 	)
 
+	cellWt := " "
+	cellBl := "*"
+
 	for aHeight < height {
 
 		for aWidth < width {
-			fmt.Print(" ")
+			fmt.Print(cellWt)
 			aWidth++
 
 			if aWidth == width {
 				break
 			}
 
-			fmt.Print("*")
+			fmt.Print(cellBl)
 			aWidth++
-
 		}
 
-		fmt.Println()
-		aHeight++
-		aWidth = 0
-
-		for aWidth < width {
-			fmt.Print("*")
-			aWidth++
-
-			if aWidth == width {
-				break
-			}
-
-			fmt.Print(" ")
-			aWidth++
-
-		}
-
+		cellWt, cellBl = cellBl, cellWt // Вот и Ваша подсказка помогла из 3 модуля, сделал до того как видео посмотрел =)
 		fmt.Println()
 		aHeight++
 		aWidth = 0

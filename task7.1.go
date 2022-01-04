@@ -10,16 +10,25 @@ func main() {
 
 	ticket := 100000
 	luckyTicket := 0
+	partTicket := 0
 
 	for ticket <= 999999 {
 
-		var a, b, c, d, e, f = ticket / 100000 % 10, ticket / 10000 % 10, ticket / 1000 % 10, ticket / 100 % 10, ticket / 10 % 10, ticket % 10
+		n := ticket
 
-		if a == f && b == e && c == d {
+		for i := 0; i < 3; i++ {
+			remainder := n % 10
+			partTicket *= 10
+			partTicket += remainder
+			n /= 10
+		}
+
+		if ticket/1000%1000 == partTicket {
 			luckyTicket++
 			fmt.Println("Зеркальный билет:", ticket)
 		}
 
+		partTicket = 0
 		ticket++
 	}
 

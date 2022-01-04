@@ -13,13 +13,26 @@ func main() {
 	var (
 		luckyTicket int
 		nextLuck    int
+		opTicket    int
+		tpTicket    int
 	)
 
 	for ticket <= 999999 {
 
-		var a, b, c, d, e, f = ticket / 100000 % 10, ticket / 10000 % 10, ticket / 1000 % 10, ticket / 100 % 10, ticket / 10 % 10, ticket % 10
+		n := ticket
 
-		if a+b+c == d+e+f {
+		for i := 0; i < 6; i++ {
+
+			if i < 3 {
+				tpTicket += n % 10
+			} else {
+				opTicket += n % 10
+			}
+
+			n /= 10
+		}
+
+		if opTicket == tpTicket {
 
 			if nextLuck < luckyTicket {
 				nextLuck = luckyTicket
@@ -27,6 +40,8 @@ func main() {
 
 			luckyTicket = 0
 		}
+
+		opTicket, tpTicket = 0, 0
 
 		luckyTicket++
 		ticket++
